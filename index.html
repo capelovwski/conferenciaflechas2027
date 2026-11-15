@@ -407,14 +407,18 @@ details[open] summary .chev { transform: rotate(-135deg); }
 .ed-tag { position: absolute; top: -46px; left: 0; display: inline-flex; gap: 8px; align-items: center; background: var(--preto); color: var(--creme); padding: 5px 10px 4px; border-radius: 999px; white-space: nowrap; }
 .ed-tag .chev { width: 30px; height: 15px; color: var(--laranja); }
 @media (max-width: 640px) {
-  .linha { grid-template-columns: 1fr; gap: 40px; padding-left: 28px; }
-  .linha::before { left: 8px; right: auto; top: 0; bottom: 0; width: 3px; height: auto; transform-origin: top; }
-  .linha.is-pre::before { transform: scaleY(0); }
-  .ed { padding-top: 0; }
-  .ed::before { top: 10px; left: -29px; }
-  .ed-atual::before { left: -33px; top: 6px; }
-  .ed-atual { padding-top: 40px; }
-  .ed-tag { top: 0; }
+  .bienal h2 { font-size: 10.4vw; }
+  .linha { grid-template-columns: 1fr; gap: 0; padding-left: 0; }
+  .linha::before, .ed::before { display: none; }
+  .ed { grid-template-columns: 1fr; align-items: end; gap: 6px 12px; padding: 16px 0 14px; border-top: 1.5px solid currentColor; }
+  .ed:last-child { border-bottom: 1.5px solid currentColor; }
+  .ed-ano { font-size: 23vw; line-height: .82; }
+  .ed-tema { font-size: 15px; }
+  .ed-atual { background: var(--laranja); color: var(--preto); border-top-color: var(--laranja);
+    margin-inline: calc(-1 * var(--gutter-l)) calc(-1 * var(--gutter-r)); padding: 18px var(--gutter-r) 18px var(--gutter-l); }
+  .ed-atual .ed-ano { color: var(--preto); font-size: 31vw; }
+  .ed-atual + .ed { border-top-color: transparent; }
+  .ed-tag { position: static; grid-column: 1 / -1; justify-self: start; margin-bottom: 6px; }
 }
 
 
@@ -449,15 +453,14 @@ details[open] summary .chev { transform: rotate(-135deg); }
   .cta-bar .btn { flex: none; padding: 13px 18px 12px; font-size: 14px; }
 
   /* carrosséis de arrastar */
-  .tickets, .grid-p {
+  .tickets {
     display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px;
     margin-left: calc(-1 * var(--gutter-l)); margin-right: calc(-1 * var(--gutter-r));
     padding-left: var(--gutter-l); padding-right: var(--gutter-r);
     scroll-padding-left: var(--gutter-l); scrollbar-width: none; -webkit-overflow-scrolling: touch;
   }
-  .tickets::-webkit-scrollbar, .grid-p::-webkit-scrollbar { display: none; }
+  .tickets::-webkit-scrollbar { display: none; }
   .tickets > .ticket { flex: 0 0 86%; scroll-snap-align: start; }
-  .grid-p > .p-card { flex: 0 0 64%; scroll-snap-align: start; }
   .swipe-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
   .swipe-dots i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .3; transition: opacity .25s, width .25s; }
   .swipe-dots i.on { opacity: 1; width: 22px; border-radius: 4px; }
@@ -474,8 +477,59 @@ details[open] summary .chev { transform: rotate(-135deg); }
   /* local: mapa vira botão */
   .local .mapa { display: block; text-align: center; text-decoration: none; background: var(--creme); color: var(--azul-fundo); padding: 14px; border-radius: 999px; font-weight: 700; }
   summary { padding: 18px 0; min-height: 56px; }
-  .rodape { padding-bottom: 80px; }
+
+  /* cabeçalho maior */
+  .topo .wrap { padding-block: 20px; }
+  .topo-logo svg { height: 38px; }
+  .topo-cross { height: 31px; }
+  .topo-div { height: 32px; }
+  .topo-cta { min-height: 44px; font-size: 13px; padding: 0 14px; }
+  .topo .ano { display: none; }
+
+  /* cada seção ocupa uma tela */
+  .hero, .sobre, .bienal, .lema, .preletores, .ingressos, .duvidas { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+  .hero > .wrap, .sobre > .wrap, .bienal > .wrap, .lema > .wrap, .preletores > .wrap, .ingressos > .wrap, .duvidas > .wrap { width: 100%; }
+
+  /* hero */
+  .hero { justify-content: stretch; }
+  .hero > .wrap { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-block: calc(108px + env(safe-area-inset-top, 0px)) 28px; }
+  .hero-mega { margin: 0; }
+  .hero-row { gap: 22px; margin-top: 0; }
+  .hero-row .tema { order: 1; font-size: 10.6vw; line-height: .95; }
+  .hero-row .tema em { font-size: 1.55em; margin-left: 0; display: block; margin-top: .05em; }
+  .hero-row .datas { order: 2; justify-content: space-between; align-items: center; padding-top: 18px; border-top: 1.5px solid var(--creme); }
+  .hero-row .datas b { font-size: 12.6vw; }
+  .hero-row .datas-info { font-size: 16px; text-align: right; padding: 0; white-space: nowrap; }
+
+  /* REINO maior */
+  .lema > .wrap { padding-block: 48px; }
+  .pilha .cond { width: 185%; }
+  .pilha .cond:nth-child(even) { margin-left: -42%; }
+  .pilha .cond { line-height: .9; }
+
+  /* preletores em grade 2x2 */
+  .grid-p { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
+  .preletores .swipe-dots { display: none; }
+  .moldura { padding: 14px; }
+  .moldura .t { font-size: 6.5px; letter-spacing: .06em; }
+  .moldura .t-top { top: 3px; } .moldura .t-bot { bottom: 3px; }
+  .moldura .foto span { font-size: 34px; }
+  .p-nome { font-size: 15px; }
+  .pre-micro { font-size: 9px; }
+  .pre-micro.baixo { margin-top: 28px; }
+
+  /* rodapé */
+  .rodape .wrap { min-height: 100svh; display: flex; flex-direction: column; padding-block: 56px calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .rod-top { flex: 1; flex-direction: column; align-items: flex-start; justify-content: center; gap: 30px; }
+  .rod-top .serif { font-size: 11.4vw; max-width: none; }
+  .rod-top .serif em { display: block; font-size: 1.5em; margin-top: .05em; }
+  .rod-top .btn { width: 100%; justify-content: space-between; padding: 18px 22px 17px; font-size: 16px; }
+  .rod-top .oval { font-size: 16px; }
+  .rod-info { flex-direction: column; gap: 4px; margin-top: 28px; padding-top: 14px; }
+  .rod-mega { margin-top: 28px; margin-bottom: 0 !important; }
 }
+.so-mob { display: none !important; }
+@media (max-width: 900px) { .so-mob { display: block !important; } }
 /* ——— entrada ao rolar (só para o que começa fora da tela) ——— */
 [data-reveal] { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1), clip-path 1.4s cubic-bezier(.6,0,.2,1); transition-delay: var(--d, 0s); }
 .is-pre[data-reveal="up"] { opacity: 0; transform: translateY(48px); }
@@ -631,6 +685,10 @@ main, footer { overflow-x: clip; }
         <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino</span></span>
         <span class="cond fit" data-fit aria-hidden="true"><span>Reino Reino</span></span>
         <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino</span></span>
+        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
+        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
+        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
+        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
         <span class="marca oval m1" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
         <span class="marca rect m2" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
         <span class="marca oval m3" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
@@ -997,18 +1055,22 @@ main, footer { overflow-x: clip; }
     hero.style.setProperty('--mx', ((cx - r.left) / r.width - .5).toFixed(3));
     hero.style.setProperty('--my', ((cy - r.top) / r.height - .5).toFixed(3));
   }
-  hero.addEventListener('pointermove', function (e) { setPointer(e.clientX, e.clientY); });
-  hero.addEventListener('pointerenter', function (e) { hero.classList.add('is-hover'); setPointer(e.clientX, e.clientY); });
-  hero.addEventListener('pointerleave', function () {
+  if (!window.matchMedia('(hover: none), (max-width: 900px)').matches) hero.addEventListener('pointermove', function (e) { setPointer(e.clientX, e.clientY); });
+  if (!window.matchMedia('(hover: none), (max-width: 900px)').matches) hero.addEventListener('pointerenter', function (e) { hero.classList.add('is-hover'); setPointer(e.clientX, e.clientY); });
+  if (!window.matchMedia('(hover: none), (max-width: 900px)').matches) hero.addEventListener('pointerleave', function () {
     mouse.ts = 0; hero.classList.remove('is-hover');
     hero.style.setProperty('--mx', 0); hero.style.setProperty('--my', 0);
   });
 
-  var touch = window.matchMedia('(hover: none)').matches;
-  if (touch) {
-    mouse.ts = 1;
-    hero.addEventListener('pointerdown', function (e) { setPointer(e.clientX, e.clientY); touch = 'hold'; setTimeout(function () { touch = true; }, 2500); });
+  var touch = window.matchMedia('(hover: none), (max-width: 900px)').matches;
+  function pinSeta() {
+    if (!setaEl) return;
+    var cr = cv.getBoundingClientRect(), sr = setaEl.getBoundingClientRect();
+    mouse.tx = mouse.x = sr.left - cr.left + sr.width * .5;
+    mouse.ty = mouse.y = sr.top - cr.top + sr.height * .5;
+    mouse.ts = mouse.s = 1;
   }
+  if (touch) { setTimeout(pinSeta, 1500); window.addEventListener('resize', pinSeta); }
 
   var visible = true, last = 0;
   if ('IntersectionObserver' in window) {
@@ -1017,12 +1079,8 @@ main, footer { overflow-x: clip; }
   (function loop(now) {
     var active = mouse.s > .01 || mouse.ts > 0;
     var intro = now < 2800 || hero.classList.contains('is-hover');
-    if (visible && now - last > (intro ? 16 : active ? (touch ? 45 : 28) : 70)) {
+    if (visible && now - last > (intro ? 16 : active ? (touch ? 80 : 28) : 70)) {
       last = now;
-      if (touch === true) {
-        mouse.tx = W * (.5 + .32 * Math.sin(now * .00035)); mouse.ty = H * (.42 + .22 * Math.sin(now * .00052 + 1));
-        mouse.ts = 1;
-      }
       mouse.x += (mouse.tx - mouse.x) * .22; mouse.y += (mouse.ty - mouse.y) * .22;
       mouse.s += (mouse.ts - mouse.s) * .12;
       draw(now);
