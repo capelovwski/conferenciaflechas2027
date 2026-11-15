@@ -531,9 +531,9 @@ details[open] summary .chev { transform: rotate(-135deg); }
 .so-mob { display: none !important; }
 @media (max-width: 900px) { .so-mob { display: block !important; } }
 
-/* Reino invertido: a palavra chega de cabeça para baixo e vira */
-.q-reino > span { display: inline-block; transform-origin: 50% 55%; transition: transform 1.3s cubic-bezier(.5,-0.3,.2,1.3) .25s; }
-.is-pre[data-reveal="flip"] > span { transform: rotate(180deg); }
+/* palavra em destaque da citação: só surge */
+.q-reino > span { display: inline-block; transition: opacity 1.1s ease .2s, transform 1.1s cubic-bezier(.2,.7,.2,1) .2s; }
+.is-pre[data-reveal="flip"] > span { opacity: 0; transform: translateY(18px); }
 [data-reveal="flip"] { transition: none; }
 .pilha .cond.o { rotate: 180deg; }
 /* ——— entrada ao rolar (só para o que começa fora da tela) ——— */
