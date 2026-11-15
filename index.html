@@ -205,7 +205,7 @@ a { color: inherit; }
 .lema .wrap { padding-block: clamp(56px, 8vw, 110px); }
 .lema-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
 .pilha { position: relative; }
-.pilha .cond { font-size: 8vw; line-height: .92; }
+.pilha .cond { font-size: 8vw; line-height: .92; width: 150%; margin-left: -25%; }
 .pilha .cond.o { color: transparent; -webkit-text-stroke: 1.5px var(--creme); }
 .marca {
   position: absolute; left: 50%; translate: -50% -50%;
@@ -216,9 +216,24 @@ a { color: inherit; }
 .marca.rect { background: var(--laranja); color: var(--preto); }
 .marca-seta { position: absolute; left: 50%; top: 50%; width: 26%; max-width: 46%; height: auto; aspect-ratio: 1; transform: translate(-54%, -54%); color: currentColor; }
 .marca.rect .marca-seta { width: auto; height: 48%; }
-.marca.m1 { top: 25%; left: 34%; }
-.marca.m2 { top: 50%; left: 68%; }
-.marca.m3 { top: 75%; left: 40%; }
+.marca { width: clamp(120px, 15vw, 240px); height: clamp(58px, 7vw, 112px); z-index: 2; }
+.marca.rect, .marca.circ, .marca.pill { box-shadow: 0 10px 24px rgba(6,7,12,.28); }
+.marca.circ { width: clamp(96px, 11vw, 170px); height: clamp(96px, 11vw, 170px); border-radius: 50%; background: var(--laranja); color: var(--preto); }
+.marca.circ .marca-seta { width: 40%; }
+.marca.pill { width: auto; height: auto; padding: .1em .55em .2em; border-radius: 999px; background: var(--laranja); color: var(--preto); font-size: clamp(34px, 5vw, 76px); }
+.marca.pill em { font-family: var(--f-script); font-style: normal; line-height: 1; }
+.marca.txt { width: auto; height: auto; padding: .45em .7em .4em; font-family: var(--f-cond); font-size: clamp(16px, 1.9vw, 30px); white-space: nowrap; }
+.marca.m1 { top: 22%; left: 26%; rotate: -8deg; }
+.marca.m2 { top: 48%; left: 66%; rotate: 6deg; }
+.marca.m3 { top: 78%; left: 42%; rotate: 4deg; }
+.marca.m4 { top: 12%; left: 86%; rotate: 12deg; }
+.marca.m5 { top: 60%; left: 14%; rotate: -10deg; }
+.marca.m6 { top: 34%; left: 52%; rotate: -4deg; }
+.marca.m7 { top: 86%; left: 84%; rotate: -14deg; }
+@media (max-width: 900px) {
+  .marca.m1 { top: 14%; left: 30%; } .marca.m2 { top: 40%; left: 74%; } .marca.m3 { top: 70%; left: 34%; }
+  .marca.m4 { top: 6%; left: 82%; } .marca.m5 { top: 55%; left: 30%; } .marca.m6 { top: 26%; left: 46%; } .marca.m7 { top: 88%; left: 76%; }
+}
 
 /* ——— preletores ——— */
 .preletores { background: var(--preto); color: var(--creme); overflow: hidden; }
@@ -504,8 +519,7 @@ details[open] summary .chev { transform: rotate(-135deg); }
 
   /* REINO maior */
   .lema > .wrap { padding-block: 48px; }
-  .pilha .cond { width: 185%; }
-  .pilha .cond:nth-child(even) { margin-left: -42%; }
+  .pilha .cond { width: 280%; margin-left: -90%; }
   .pilha .cond { line-height: .9; }
 
   /* preletores em grade 2x2 */
@@ -688,17 +702,21 @@ main, footer { overflow-x: clip; }
   <section class="lema" aria-label="Tema: Reino">
     <div class="wrap">
       <div class="pilha" aria-label="Reino">
-        <span class="cond fit" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
-        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino</span></span>
+        <span class="cond fit" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit o" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit so-mob" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
+        <span class="cond fit o so-mob" data-fit aria-hidden="true"><span>Reino Reino Reino</span></span>
         <span class="marca oval m1" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
         <span class="marca rect m2" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
         <span class="marca oval m3" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
+        <span class="marca circ m4" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
+        <span class="marca pill m5" aria-hidden="true"><em>invertido</em></span>
+        <span class="marca rect txt m6" aria-hidden="true">27—29 AGO</span>
+        <span class="marca circ m7" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
       </div>
     </div>
   </section>
@@ -965,8 +983,8 @@ main, footer { overflow-x: clip; }
         var r = pilha.getBoundingClientRect();
         var prog = (window.innerHeight - r.top) / (window.innerHeight + r.height) - .5;
         linhas.forEach(function (l, idx) {
-          var dir = idx % 2 ? 1 : -1;
-          l.style.transform = 'translateX(' + (dir * prog * 12) + '%)';
+          /* linhas em contorno estão giradas 180°: o mesmo sinal local as leva para o lado oposto na tela */
+          l.style.transform = 'translate3d(' + (-prog * 26).toFixed(2) + '%,0,0)';
         });
       }
     });
