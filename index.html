@@ -195,8 +195,8 @@ a { color: inherit; }
 .citacao { margin: clamp(72px, 10vw, 140px) 0 0; padding-top: 28px; border-top: 1.5px solid var(--creme); }
 .citacao blockquote { margin: 0; display: grid; }
 .citacao .q { font-family: var(--f-cond); text-transform: uppercase; font-size: clamp(22px, 4vw, 60px); line-height: 1; }
-.citacao .q-reino { font-family: var(--f-script); font-size: clamp(70px, 14.5vw, 230px); line-height: .9; color: var(--creme); margin: -.02em 0 -.02em .06em; white-space: nowrap; }
-.citacao .q-fim { justify-self: end; text-align: right; }
+.citacao .q-reino { font-family: var(--f-script); font-size: clamp(96px, 21vw, 320px); line-height: .9; color: var(--creme); margin: -.02em 0 -.02em 0; padding-left: .32em; white-space: nowrap; }
+.citacao .q-fim { justify-self: end; text-align: right; max-width: 22ch; }
 .citacao figcaption { margin-top: 22px; display: flex; align-items: center; gap: 10px; justify-content: flex-end; }
 .citacao figcaption .chev { width: 28px; height: 14px; color: var(--laranja); }
 
@@ -651,11 +651,11 @@ main, footer { overflow-x: clip; }
 
       <figure class="citacao">
         <blockquote>
-          <span class="q" data-reveal="up">“Os últimos serão</span>
-          <span class="q-reino" data-reveal="flip"><span>primeiros,</span></span>
-          <span class="q q-fim" data-reveal="up" style="--d:.5s">e os primeiros, últimos.”</span>
+          <span class="q" data-reveal="up">“Bem-aventurados os</span>
+          <span class="q-reino" data-reveal="flip"><span>pobres</span></span>
+          <span class="q q-fim" data-reveal="up" style="--d:.5s">de espírito, porque deles é o Reino dos céus.”</span>
         </blockquote>
-        <figcaption><svg class="chev" aria-hidden="true"><use href="#chev"/></svg> Mateus 20:16</figcaption>
+        <figcaption><svg class="chev" aria-hidden="true"><use href="#chev"/></svg> Mateus 5:3</figcaption>
       </figure>
     </div>
   </section>
