@@ -649,6 +649,39 @@ details[open] summary .chev { transform: rotate(-135deg); }
 main, footer { overflow-x: clip; }
 .marquee-track { animation-duration: var(--mq, 38s); }
 
+/* ——— fotos: cópias reveladas coladas no pôster ——— */
+.foto-print { margin: 0; background: var(--creme); color: var(--preto); padding: 10px 10px 0; box-shadow: 0 18px 40px -16px rgba(6,7,12,.55); }
+.foto-print img { display: block; width: 100%; height: auto; background: var(--azul-fundo); }
+.foto-print figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 9px 2px 10px; display: flex; justify-content: space-between; gap: 10px; }
+
+/* Reino: foto da oração colada sobre a pilha de letreiros */
+.lema-foto { position: absolute; z-index: 3; left: 50%; top: 50%; width: clamp(190px, 22vw, 340px); translate: -50% -50%; rotate: -4deg; }
+/* selos que ficariam escondidos atrás da foto mudam de lugar */
+.marca.m6 { top: 86%; left: 20%; }
+@media (max-width: 900px) { .lema-foto { width: 52vw; top: 47%; } .marca.m5 { top: 97%; left: 32%; } .marca.m6 { top: 2%; left: 30%; } }
+
+/* Ingressos: foto do painel no vão acima dos cards */
+.ing-foto { rotate: 1.5deg; }
+@media (min-width: 901px) { .ing-foto { margin: -18vh 0 14vh; } }
+@media (max-width: 900px) {
+  .tickets-col { display: contents; }
+  .ing-grid .tickets, .ing-grid .tickets-col > .swipe-dots { order: -1; }
+  .ing-foto { order: 1; rotate: -1.5deg; margin-top: 8px; }
+  .ing-grid .tickets-col > .swipe-dots { margin-top: -32px; }
+}
+
+/* Dúvidas: duas fotos sobrepostas embaixo do endereço */
+.duv-fotos { position: relative; margin-top: clamp(36px, 5vw, 64px); height: clamp(330px, 34vw, 500px); }
+.duv-fotos .foto-print { position: absolute; width: 50%; }
+.duv-fotos .f1 { left: 0; top: 0; rotate: -5deg; z-index: 1; }
+.duv-fotos .f2 { right: 4%; top: 12%; rotate: 4deg; }
+@media (max-width: 900px) { .duv-fotos { height: 96vw; margin-bottom: 8px; } .duv-fotos .foto-print { width: 54%; } }
+
+/* Rodapé: foto larga em preto e branco */
+.rod-foto { margin: 56px 0 0; position: relative; }
+.rod-foto img { display: block; width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 62%; }
+@media (max-width: 900px) { .rod-foto { margin-top: 30px; } .rod-foto img { aspect-ratio: 4 / 3; } }
+
 @media (prefers-reduced-motion: reduce) {
   .is-pre { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -806,6 +839,10 @@ main, footer { overflow-x: clip; }
         <span class="marca pill m5" aria-hidden="true"><em>invertido</em></span>
         <span class="marca rect txt m6" aria-hidden="true">27—29 AGO</span>
         <span class="marca circ m7" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
+        <figure class="foto-print lema-foto" data-reveal="up">
+          <img src="/img/fotos/oracao-480.webp" srcset="/img/fotos/oracao-480.webp 480w, /img/fotos/oracao-960.webp 960w" sizes="(max-width: 900px) 52vw, 22vw" width="960" height="1440" loading="lazy" decoding="async" alt="Jovens ajoelhados orando uns pelos outros, com as mãos nos ombros">
+          <figcaption><span>Flechas</span><span>Oração</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -878,6 +915,10 @@ main, footer { overflow-x: clip; }
 
         </div>
         <div class="tickets-col">
+        <figure class="foto-print ing-foto" data-reveal="up">
+          <img src="/img/fotos/painel-640.webp" srcset="/img/fotos/painel-640.webp 640w, /img/fotos/painel-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 45vw" width="1280" height="853" loading="lazy" decoding="async" alt="Bate-papo no palco com três convidados sentados em poltronas">
+          <figcaption><span>Plenárias</span><span>Flechas</span></figcaption>
+        </figure>
         <div class="tickets" data-lenis-prevent-touch>
           <article class="ticket destaque" data-reveal="up">
             <span class="tag mono">Mais escolhido</span>
@@ -926,6 +967,16 @@ main, footer { overflow-x: clip; }
           <span>R. Amazonas de Souza Azevedo, 134 — Bacacheri, Curitiba — PR</span>
           <a class="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Amazonas+de+Souza+Azevedo,+134+-+Bacacheri,+Curitiba+-+PR" target="_blank" rel="noopener">Abrir no mapa ↗</a>
         </div>
+        <div class="duv-fotos" data-reveal="up" style="--d:.25s">
+          <figure class="foto-print f1">
+            <img src="/img/fotos/staff-400.webp" srcset="/img/fotos/staff-400.webp 400w, /img/fotos/staff-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Voluntária da equipe de fotografia sorrindo com a câmera na mão">
+            <figcaption><span>Staff</span></figcaption>
+          </figure>
+          <figure class="foto-print f2">
+            <img src="/img/fotos/cafe-400.webp" srcset="/img/fotos/cafe-400.webp 400w, /img/fotos/cafe-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Mão erguendo um pacote de café sob luz azul">
+            <figcaption><span>Café</span></figcaption>
+          </figure>
+        </div>
       </div>
       <div>
         <details data-reveal="up">
@@ -973,6 +1024,9 @@ main, footer { overflow-x: clip; }
       <span class="oval"><span>Reino</span><svg class="oval-seta" aria-hidden="true"><use href="#seta"/></svg><span>2027</span></span>
       <a class="btn" href="#ingressos">Garantir minha vaga <svg class="chev"><use href="#chev"/></svg></a>
     </div>
+    <figure class="rod-foto" data-reveal="up">
+      <img src="/img/fotos/abraco-800.webp" srcset="/img/fotos/abraco-800.webp 800w, /img/fotos/abraco-1400.webp 1400w, /img/fotos/abraco-2000.webp 2000w" sizes="(max-width: 1440px) 100vw, 1360px" width="2000" height="1333" loading="lazy" decoding="async" alt="Quatro jovens abraçados de costas no palco, diante das luzes">
+    </figure>
     <div class="rod-info">
       <span>Conferência Flechas 2027</span>
       <span>Igreja Batista do Bacacheri, Curitiba</span>
