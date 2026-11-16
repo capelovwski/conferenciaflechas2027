@@ -667,7 +667,7 @@ main, footer { overflow-x: clip; }
 
 /* Dúvidas: duas fotos sobrepostas embaixo do endereço */
 .duv-fotos { position: relative; margin-top: clamp(36px, 5vw, 64px); height: clamp(330px, 34vw, 500px); }
-.duv-fotos .foto-print { position: absolute; width: 50%; }
+.duv-fotos .foto-print { position: absolute; width: 50%; padding-bottom: 30px; } /* sem legenda: mantém a borda de baixo mais larga da foto revelada */
 .duv-fotos .f1 { left: 0; top: 0; rotate: -5deg; z-index: 1; }
 .duv-fotos .f2 { right: 4%; top: 12%; rotate: 4deg; }
 @media (max-width: 900px) { .duv-fotos { height: 96vw; margin-bottom: 8px; } .duv-fotos .foto-print { width: 54%; } }
@@ -967,11 +967,9 @@ main, footer { overflow-x: clip; }
         <div class="duv-fotos" data-reveal="up" style="--d:.25s">
           <figure class="foto-print f1">
             <img src="/img/fotos/staff-400.webp" srcset="/img/fotos/staff-400.webp 400w, /img/fotos/staff-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Voluntária da equipe de fotografia sorrindo com a câmera na mão">
-            <figcaption><span>Staff</span></figcaption>
           </figure>
           <figure class="foto-print f2">
             <img src="/img/fotos/cafe-400.webp" srcset="/img/fotos/cafe-400.webp 400w, /img/fotos/cafe-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Mão erguendo um pacote de café sob luz azul">
-            <figcaption><span>Café</span></figcaption>
           </figure>
         </div>
       </div>
