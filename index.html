@@ -49,6 +49,7 @@
   --preto: #06070C;
   --marrom: #563E33;
   --laranja: #FF5C11;
+  --cinza: #1D1E24;
 
   --f-cond: "Maison des Pastel Sans", "Helvena", "Helvetica Neue", sans-serif;
   --f-text: "Helvena", "Helvetica Neue", Arial, sans-serif;
@@ -208,7 +209,7 @@ a { color: inherit; }
 /* castelo de ponta-cabeça: o Reino invertido pende do topo da seção, como reflexo */
 .sobre { position: relative; isolation: isolate; overflow: hidden; }
 .sobre > .wrap { position: relative; z-index: 1; }
-.sobre-castelo { position: absolute; z-index: 0; top: -1px; left: 50%; translate: -50% 0; width: max(100%, 760px); max-width: 1600px; height: auto; color: var(--azul); opacity: .55; pointer-events: none; }
+.sobre-castelo { position: absolute; z-index: 0; top: -1px; left: 50%; translate: -50% 0; width: max(100%, 760px); max-width: 1600px; height: auto; color: var(--cinza); pointer-events: none; }
 .is-pre[data-reveal="drop"] { clip-path: inset(0 0 100% 0); }
 [data-reveal="drop"] { clip-path: inset(0 0 -2% 0); transition-duration: 2s; }
 .sobre-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
@@ -217,7 +218,20 @@ a { color: inherit; }
 .sobre h2 em { color: var(--laranja); }
 .sobre-txt p { font-weight: 300; font-size: clamp(18px, 1.45vw, 22px); max-width: 52ch; margin: 0 0 1.1em; }
 .sobre-txt p.no-drop::first-letter { font-family: var(--f-script); font-size: 3.4em; float: left; line-height: .8; padding: 6px 10px 0 0; }
-@media (max-width: 860px) { .sobre-grid { grid-template-columns: 1fr; } }
+@media (max-width: 860px) {
+  .sobre-grid { grid-template-columns: 1fr; gap: 22px; }
+  /* castelo inteiro na largura da tela; o título começa onde só a torre central ainda pende */
+  .sobre-castelo { width: 100%; }
+  .sobre .wrap { padding-top: calc(50vw * .56); padding-bottom: 72px; }
+  .sobre h2 { font-size: 10.6vw; margin: 0; line-height: .95; }
+  .sobre h2 em { display: block; margin: .02em 0 0 -.06em; }
+  .sobre-txt p { font-size: 17px; line-height: 1.55; }
+  .sobre-txt p:last-child { margin-bottom: 0; }
+  .citacao { margin-top: 56px; padding-top: 22px; }
+  .citacao .q { font-size: 6.4vw; }
+  .citacao .q-reino { font-size: 30vw; padding-left: .22em; margin-block: .04em .02em; }
+  .citacao .q-fim { max-width: none; }
+}
 
 /* bloco da citação: só tipografia */
 .citacao { margin: clamp(72px, 10vw, 140px) 0 0; padding-top: 28px; border-top: 1.5px solid var(--creme); }
