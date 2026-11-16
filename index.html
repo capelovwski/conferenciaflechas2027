@@ -660,15 +660,10 @@ main, footer { overflow-x: clip; }
 .marca.m6 { top: 86%; left: 20%; }
 @media (max-width: 900px) { .lema-foto { width: 52vw; top: 47%; } .marca.m5 { top: 97%; left: 32%; } .marca.m6 { top: 2%; left: 30%; } }
 
-/* Ingressos: foto do painel no vão acima dos cards */
-.ing-foto { rotate: 1.5deg; }
-@media (min-width: 901px) { .ing-foto { margin: -18vh 0 14vh; } }
-@media (max-width: 900px) {
-  .tickets-col { display: contents; }
-  .ing-grid .tickets, .ing-grid .tickets-col > .swipe-dots { order: -1; }
-  .ing-foto { order: 1; rotate: -1.5deg; margin-top: 8px; }
-  .ing-grid .tickets-col > .swipe-dots { margin-top: -32px; }
-}
+/* Entre ingressos e dúvidas: foto do painel colada na emenda das duas cores */
+.ponte { background: linear-gradient(var(--azul) 50%, var(--creme) 50%); padding: 0 var(--gutter-r) 0 var(--gutter-l); }
+.ponte-foto { width: min(900px, 90%); margin: 0 auto; rotate: -1.5deg; }
+@media (max-width: 900px) { .ponte-foto { width: 100%; rotate: -2deg; } }
 
 /* Dúvidas: duas fotos sobrepostas embaixo do endereço */
 .duv-fotos { position: relative; margin-top: clamp(36px, 5vw, 64px); height: clamp(330px, 34vw, 500px); }
@@ -915,10 +910,6 @@ main, footer { overflow-x: clip; }
 
         </div>
         <div class="tickets-col">
-        <figure class="foto-print ing-foto" data-reveal="up">
-          <img src="/img/fotos/painel-640.webp" srcset="/img/fotos/painel-640.webp 640w, /img/fotos/painel-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 45vw" width="1280" height="853" loading="lazy" decoding="async" alt="Bate-papo no palco com três convidados sentados em poltronas">
-          <figcaption><span>Plenárias</span><span>Flechas</span></figcaption>
-        </figure>
         <div class="tickets" data-lenis-prevent-touch>
           <article class="ticket destaque" data-reveal="up">
             <span class="tag mono">Mais escolhido</span>
@@ -958,6 +949,12 @@ main, footer { overflow-x: clip; }
     </div>
   </section>
 
+  <div class="ponte">
+    <figure class="foto-print ponte-foto" data-reveal="up">
+      <img src="/img/fotos/painel-640.webp" srcset="/img/fotos/painel-640.webp 640w, /img/fotos/painel-1280.webp 1280w" sizes="(max-width: 900px) 90vw, 900px" width="1280" height="853" loading="lazy" decoding="async" alt="Bate-papo no palco com três convidados sentados em poltronas">
+      <figcaption><span>Plenárias</span><span>Flechas</span></figcaption>
+    </figure>
+  </div>
   <section class="duvidas" id="duvidas" aria-labelledby="duv-t">
     <div class="wrap duv-grid">
       <div>
