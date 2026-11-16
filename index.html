@@ -657,8 +657,19 @@ main, footer { overflow-x: clip; }
 /* Reino: foto da oração colada sobre a pilha de letreiros */
 .lema-foto { position: absolute; z-index: 3; left: 50%; top: 50%; padding-bottom: 30px; width: clamp(190px, 22vw, 340px); translate: -50% -50%; rotate: -4deg; }
 /* selos que ficariam escondidos atrás da foto mudam de lugar */
-.marca.m6 { top: 86%; left: 20%; }
-@media (max-width: 900px) { .lema-foto { width: 52vw; top: 47%; } .marca.m5 { top: 97%; left: 32%; } .marca.m6 { top: 2%; left: 30%; } }
+.marca.m6 { top: 84%; left: 13%; }
+/* dois adesivos colados por cima da foto: o retângulo na borda direita e o "invertido" no canto de baixo */
+.marca.m2, .marca.m5 { z-index: 4; }
+.marca.m2 { top: 30%; left: 64%; }
+.marca.m5 { top: 80%; left: 43%; rotate: -8deg; }
+.marca.m3 { top: 58%; left: 88%; }
+@media (max-width: 900px) {
+  .lema-foto { width: 52vw; top: 47%; }
+  .marca.m2 { top: 31%; left: 78%; }
+  .marca.m5 { top: 70%; left: 34%; }
+  .marca.m3 { top: 92%; left: 30%; }
+  .marca.m6 { top: 2%; left: 30%; }
+}
 
 /* Entre ingressos e dúvidas: foto do painel colada na emenda das duas cores */
 .ponte { background: linear-gradient(var(--azul) 50%, var(--creme) 50%); padding: 0 var(--gutter-r) 0 var(--gutter-l); }
@@ -777,7 +788,7 @@ main, footer { overflow-x: clip; }
         </div>
         <div class="sobre-txt" data-reveal="up" style="--d:.15s">
           <p>A Conferência Flechas nasceu do desejo de criar um ambiente onde jovens e adolescentes possam viver intensamente o agir do Espírito Santo, firmados na verdade das Escrituras e totalmente dependentes das palavras de Cristo.</p>
-          <p>Neste ano, o tema é REINO. No Reino de Jesus a lógica é outra: os pobres são ricos, os últimos são os primeiros e quem quer ser grande se faz servo. Queremos aprender a viver esse Reino aqui e agora, em casa, na escola, na igreja e em cada lugar para onde formos enviados.</p>
+          <p>Nesta edição, o tema é REINO. No Reino de Jesus a lógica é outra: os pobres são ricos, os últimos são os primeiros e quem quer ser grande se faz servo. Queremos aprender a viver esse Reino aqui e agora, em casa, na escola, na igreja e em cada lugar para onde formos enviados.</p>
         </div>
       </div>
 
