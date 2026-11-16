@@ -300,10 +300,10 @@ a { color: inherit; }
 @media (min-width: 901px) {
   .ingressos .wrap { padding-block: 0; }
   .ing-grid { align-items: start; }
-  .ing-left { position: sticky; top: 0; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-block: 56px; }
+  .ing-left { position: sticky; top: 0; z-index: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-block: 56px; }
   .ing-left h2 { width: max-content; max-width: none; font-size: 7.4vw; margin-bottom: clamp(28px, 4vh, 52px); }
   .ing-left .dia + .dia { margin-top: clamp(20px, 3.4vh, 38px); }
-  .tickets-col { position: relative; z-index: 2; padding-top: 70vh; padding-bottom: 30vh; }
+  .tickets-col { position: relative; z-index: 10; isolation: isolate; transform: translateZ(0); padding-top: 70vh; padding-bottom: 30vh; }
   .tickets { gap: 10vh; }
   .ticket { box-shadow: 0 24px 60px rgba(6, 7, 12, .35); }
   .ticket { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease; }
@@ -411,6 +411,11 @@ details[open] summary .chev { transform: rotate(-135deg); }
 .oval > span { display: block; line-height: 1; padding-top: .08em; }
 .oval-seta { width: .82em; height: .82em; flex: none; color: var(--laranja); }
 .rod-mega { margin-bottom: 24px !important; }
+/* desktop: FLECHAS ocupa a largura toda da tela e sangra para fora do fundo */
+@media (min-width: 901px) {
+  .rodape { container-type: inline-size; }
+  .rod-mega { width: 100cqw; max-width: none; margin-left: calc(50% - 50cqw); margin-top: 56px; margin-bottom: -4.2cqw !important; }
+}
 .rod-seta { transform-box: fill-box; transform-origin: center; transition: transform .15s linear; }
 
 
@@ -743,9 +748,9 @@ main, footer { overflow-x: clip; }
 
   <section class="preletores" id="preletores" aria-labelledby="pre-t">
     <div class="wrap">
-      <div class="mono pre-micro" aria-hidden="true"><span>Quem</span><span>vai</span><span>ministrar</span><span>na</span><span>Flechas</span><span>2027</span></div>
+      <div class="mono pre-micro" aria-hidden="true"><span>Vozes</span><span>que</span><span>acendem</span><span>o</span><span>nosso</span><span>Reino</span></div>
       <h2 id="pre-t" class="cond fit" data-fit data-reveal="up"><span>Preletores</span></h2>
-      <div class="mono pre-micro" aria-hidden="true"><span>Palavra</span><span>·</span><span>Louvor</span><span>·</span><span>Workshops</span><span>·</span><span>Plenárias</span></div>
+      <div class="mono pre-micro" aria-hidden="true"><span>Palavra</span><span>·</span><span>Canto</span><span>·</span><span>Oficina</span><span>·</span><span>Encontro</span></div>
       <div class="grid-p">
         <article class="p-card" data-reveal="up">
           <div class="moldura">
@@ -781,7 +786,7 @@ main, footer { overflow-x: clip; }
         </article>
       </div>
       <div class="swipe-dots" data-for="grid-p" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-      <p class="mono pre-micro baixo"><span>Os</span><span>nomes</span><span>serão</span><span>anunciados</span><span>em</span><span>breve</span></p>
+      <p class="mono pre-micro baixo"><span>Em</span><span>breve</span><span>cada</span><span>nome</span><span>será</span><span>luz</span></p>
     </div>
   </section>
 
