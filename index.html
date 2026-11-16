@@ -491,7 +491,8 @@ details[open] summary .chev { transform: rotate(-135deg); }
   .ed-tema { font-size: 15px; }
   .ed-atual { background: var(--laranja); color: var(--preto); border-top-color: var(--laranja);
     margin-inline: calc(-1 * var(--gutter-l)) calc(-1 * var(--gutter-r)); padding: 18px var(--gutter-r) 18px var(--gutter-l); }
-  .ed-atual .ed-ano { color: var(--preto); font-size: 31vw; }
+  .ed-atual .ed-ano { color: var(--preto); font-size: calc((100vw - var(--gutter-l) - var(--gutter-r)) / 3.15); }
+  .ed { min-width: 0; }
   .ed-atual + .ed { border-top-color: transparent; }
   .ed-tag { position: static; grid-column: 1 / -1; justify-self: start; margin-bottom: 6px; }
 }
@@ -601,6 +602,21 @@ details[open] summary .chev { transform: rotate(-135deg); }
   .rod-top .oval { font-size: 16px; }
   .rod-info { flex-direction: column; gap: 4px; margin-top: 28px; padding-top: 14px; }
   .rod-mega { margin-top: 28px; margin-bottom: 0 !important; }
+}
+/* ——— telas estreitas (iPhone SE 1ª geração, 320px) ——— */
+@media (max-width: 360px) {
+  .topo .wrap { gap: 10px; }
+  .topo-marcas { gap: 8px; }
+  .topo-logo svg { height: 28px; }
+  .topo-cross { height: 22px; }
+  .topo-div { height: 22px; }
+  .topo-cta { min-height: 40px; font-size: 11px; padding: 0 12px; }
+  .hero-row .datas-info { font-size: 14px; }
+  .hero-row .btn, .rod-top .btn { font-size: 14px; padding-inline: 18px; gap: 10px; }
+  .tickets > .ticket { flex-basis: 92%; min-width: 0; padding: 22px 18px 20px; }
+  .ticket > * { min-width: 0; }
+  .ticket .btn { width: 100%; justify-content: space-between; gap: 8px; padding: 15px 16px 14px; font-size: 12px; }
+  .ticket .btn .chev { width: 22px; height: 11px; }
 }
 .so-mob { display: none !important; }
 @media (max-width: 900px) { .so-mob { display: block !important; } }
@@ -787,7 +803,7 @@ main, footer { overflow-x: clip; }
     <div class="wrap">
       <div class="mono pre-micro" aria-hidden="true"><span>Vozes</span><span>que</span><span>acendem</span><span>o</span><span>nosso</span><span>Reino</span></div>
       <h2 id="pre-t" class="cond fit" data-fit data-reveal="up"><span>Preletores</span></h2>
-      <div class="mono pre-micro" aria-hidden="true"><span>Palavra</span><span>·</span><span>Canto</span><span>·</span><span>Oficina</span><span>·</span><span>Encontro</span></div>
+      <div class="mono pre-micro" aria-hidden="true"><span>Abertura</span><span>·</span><span>Workshops</span><span>·</span><span>Plenárias</span><span>·</span><span>Culto</span></div>
       <div class="grid-p">
         <article class="p-card" data-reveal="up">
           <div class="moldura">
@@ -823,7 +839,7 @@ main, footer { overflow-x: clip; }
         </article>
       </div>
       <div class="swipe-dots" data-for="grid-p" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-      <p class="mono pre-micro baixo"><span>Em</span><span>breve</span><span>cada</span><span>nome</span><span>será</span><span>luz</span></p>
+      <p class="mono pre-micro baixo"><span>Quatro vozes</span><span>·</span><span>Três dias</span><span>·</span><span>Um Reino</span></p>
     </div>
   </section>
 
