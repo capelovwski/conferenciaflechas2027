@@ -655,7 +655,7 @@ main, footer { overflow-x: clip; }
 .foto-print figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 9px 2px 10px; display: flex; justify-content: space-between; gap: 10px; }
 
 /* Reino: foto da oração colada sobre a pilha de letreiros */
-.lema-foto { position: absolute; z-index: 3; left: 50%; top: 50%; width: clamp(190px, 22vw, 340px); translate: -50% -50%; rotate: -4deg; }
+.lema-foto { position: absolute; z-index: 3; left: 50%; top: 50%; padding-bottom: 30px; width: clamp(190px, 22vw, 340px); translate: -50% -50%; rotate: -4deg; }
 /* selos que ficariam escondidos atrás da foto mudam de lugar */
 .marca.m6 { top: 86%; left: 20%; }
 @media (max-width: 900px) { .lema-foto { width: 52vw; top: 47%; } .marca.m5 { top: 97%; left: 32%; } .marca.m6 { top: 2%; left: 30%; } }
@@ -667,7 +667,7 @@ main, footer { overflow-x: clip; }
 
 /* Dúvidas: duas fotos sobrepostas embaixo do endereço */
 .duv-fotos { position: relative; margin-top: clamp(36px, 5vw, 64px); height: clamp(330px, 34vw, 500px); }
-.duv-fotos .foto-print { position: absolute; width: 50%; }
+.duv-fotos .foto-print { position: absolute; width: 50%; padding-bottom: 30px; } /* sem legenda: mantém a borda de baixo mais larga da foto revelada */
 .duv-fotos .f1 { left: 0; top: 0; rotate: -5deg; z-index: 1; }
 .duv-fotos .f2 { right: 4%; top: 12%; rotate: 4deg; }
 @media (max-width: 900px) { .duv-fotos { height: 96vw; margin-bottom: 8px; } .duv-fotos .foto-print { width: 54%; } }
@@ -836,7 +836,6 @@ main, footer { overflow-x: clip; }
         <span class="marca circ m7" aria-hidden="true"><svg class="marca-seta" viewBox="0 0 42.48 42.32"><use href="#seta"/></svg></span>
         <figure class="foto-print lema-foto" data-reveal="up">
           <img src="/img/fotos/oracao-480.webp" srcset="/img/fotos/oracao-480.webp 480w, /img/fotos/oracao-960.webp 960w" sizes="(max-width: 900px) 52vw, 22vw" width="960" height="1440" loading="lazy" decoding="async" alt="Jovens ajoelhados orando uns pelos outros, com as mãos nos ombros">
-          <figcaption><span>Flechas</span><span>Oração</span></figcaption>
         </figure>
       </div>
     </div>
@@ -967,11 +966,9 @@ main, footer { overflow-x: clip; }
         <div class="duv-fotos" data-reveal="up" style="--d:.25s">
           <figure class="foto-print f1">
             <img src="/img/fotos/staff-400.webp" srcset="/img/fotos/staff-400.webp 400w, /img/fotos/staff-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Voluntária da equipe de fotografia sorrindo com a câmera na mão">
-            <figcaption><span>Staff</span></figcaption>
           </figure>
           <figure class="foto-print f2">
             <img src="/img/fotos/cafe-400.webp" srcset="/img/fotos/cafe-400.webp 400w, /img/fotos/cafe-800.webp 800w" sizes="(max-width: 900px) 54vw, 20vw" width="800" height="1200" loading="lazy" decoding="async" alt="Mão erguendo um pacote de café sob luz azul">
-            <figcaption><span>Café</span></figcaption>
           </figure>
         </div>
       </div>
