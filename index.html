@@ -809,7 +809,7 @@ main, footer { overflow-x: clip; }
 
         </div>
         <div class="tickets-col">
-        <div class="tickets">
+        <div class="tickets" data-lenis-prevent-touch>
           <article class="ticket destaque" data-reveal="up">
             <span class="tag mono">Mais escolhido</span>
             <div>
@@ -917,9 +917,9 @@ main, footer { overflow-x: clip; }
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Rolagem com inércia ("rolamento"): Lenis suaviza a roda/trackpad; no toque o scroll nativo já tem inércia */
+  /* Rolagem com inércia ("rolamento"): Lenis suaviza a roda/trackpad; também no toque (carrossel de ingressos fica nativo) */
   if (!reduce && typeof Lenis !== 'undefined') {
-    var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, anchors: true });
+    var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, syncTouch: true, syncTouchLerp: 0.1, touchInertiaMultiplier: 28, anchors: true });
     (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
   }
 
