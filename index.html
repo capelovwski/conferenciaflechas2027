@@ -64,6 +64,9 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html.lenis, html.lenis body { height: auto; }
+html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 body {
   background: var(--preto);
   color: var(--creme);
@@ -909,9 +912,16 @@ main, footer { overflow-x: clip; }
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Rolagem com inércia ("rolamento"): Lenis suaviza a roda/trackpad; no toque o scroll nativo já tem inércia */
+  if (!reduce && typeof Lenis !== 'undefined') {
+    var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, anchors: true });
+    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+  }
 
   /* Textos gigantes ocupam exatamente a largura da coluna */
   function fit() {
