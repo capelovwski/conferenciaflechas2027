@@ -153,7 +153,7 @@ a { color: inherit; }
 /* ——— hero ——— */
 .hero { position: relative; background: var(--azul); color: var(--creme); overflow: hidden; isolation: isolate; }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
-.hero .wrap { padding-block: calc(86px + env(safe-area-inset-top, 0px)) 34px; position: relative; }
+.hero .wrap { padding-block: calc(86px + env(safe-area-inset-top, 0px)) 78px; position: relative; }
 .hero-mega { position: relative; }
 .hero-mega .cond { font-size: 14vw; }
 .hero-mega .l2 { margin-top: .04em; }
@@ -207,9 +207,13 @@ a { color: inherit; }
 }
 
 /* ——— marquee ——— */
-.marquee { background: var(--laranja); color: var(--preto); overflow: hidden; border-block: 2px solid var(--preto); }
+/* letreiro travado depois do hero: faixa torta por cima da divisa (sem linha reta entre as seções) que fica fixa no topo enquanto a próxima seção rola por baixo */
+.trava { position: relative; --mq-h: 60px; --mq-tilt: -1.6deg; --mq-pin: 44px; }
+.marquee-slot { position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--mq-pin)); height: 0; z-index: 6; pointer-events: none; }
+.marquee { position: absolute; left: -4%; width: 108%; top: calc(var(--mq-h) / -2); height: var(--mq-h); rotate: var(--mq-tilt); background: var(--laranja); color: var(--preto); overflow: hidden; box-shadow: 0 12px 28px rgba(6, 7, 12, .34); }
+@media (max-width: 900px) { .trava { --mq-h: 52px; --mq-tilt: -3deg; --mq-pin: 36px; } }
 .marquee-track { display: flex; width: max-content; animation: corre 38s linear infinite; will-change: transform; transform: translateZ(0); }
-.marquee-track > div { display: flex; align-items: center; gap: 28px; padding: 13px 14px; white-space: nowrap; font-family: var(--f-cond); font-stretch: 75%; font-weight: 800; text-transform: uppercase; font-size: 22px; letter-spacing: .01em; }
+.marquee-track > div { display: flex; align-items: center; gap: 28px; height: var(--mq-h); padding: 0 14px; white-space: nowrap; font-family: var(--f-cond); font-stretch: 75%; font-weight: 800; text-transform: uppercase; font-size: 22px; letter-spacing: .01em; }
 .marquee .pill { display: inline-grid; place-items: center; border: 2px solid var(--preto); border-radius: 999px; padding: 4px 12px; }
 .marquee .pill .chev { width: 28px; height: 14px; }
 @keyframes corre { to { transform: translateX(var(--mw, -50%)); } }
@@ -570,7 +574,7 @@ details[open] summary .chev { transform: rotate(-135deg); }
 
   /* hero */
   .hero { justify-content: stretch; }
-  .hero > .wrap { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 26px; padding-block: calc(108px + env(safe-area-inset-top, 0px)) 28px; }
+  .hero > .wrap { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 26px; padding-block: calc(108px + env(safe-area-inset-top, 0px)) 62px; }
   .hero-mega { margin: 0; }
   .hero-row { gap: 22px; margin-top: 0; }
   .hero-row .tema { order: 1; font-size: 10.6vw; line-height: .95; }
@@ -758,6 +762,8 @@ main, footer { overflow-x: clip; }
     </div>
   </section>
 
+  <div class="trava">
+  <div class="marquee-slot">
   <div class="marquee" aria-label="Curitiba, PR. Reino. 27 a 29 de agosto. Conf Flechas. Igreja Batista do Bacacheri. Cross.">
     <div class="marquee-track" aria-hidden="true">
       <div>
@@ -777,6 +783,7 @@ main, footer { overflow-x: clip; }
         <span class="mq-cross"><svg aria-hidden="true" viewBox="0 0 512.19 193.15"><use href="#cross"/></svg></span><span class="sep">//</span>
       </div>
     </div>
+  </div>
   </div>
 
   <section class="sobre" id="sobre" aria-labelledby="sobre-t">
@@ -802,6 +809,7 @@ main, footer { overflow-x: clip; }
       </figure>
     </div>
   </section>
+  </div>
 
   <section class="bienal" aria-labelledby="bienal-t">
     <div class="wrap">
